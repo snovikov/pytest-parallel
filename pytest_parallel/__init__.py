@@ -218,7 +218,7 @@ class ParallelRunner(object):
 
         self.workers = workers
 
-    @pytest.mark.tryfirst
+    @pytest.hookimpl(tryfirst=True)
     def pytest_sessionstart(self, session):
         # make the session threadsafe
         _pytest.runner.SetupState = ThreadLocalSetupState
